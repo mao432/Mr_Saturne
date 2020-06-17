@@ -219,7 +219,6 @@ if (command === `${prefix}AntiRaid_ON`) {
   .setTitle(`L'AntiRaid vien d'être activé !!`)
   .setFooter(`L'AntiRaid activé par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
   message.channel.send(embed)
-
 } 
 
 if (message.content === `${prefix}Bienvenue`) {
