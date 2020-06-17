@@ -114,6 +114,7 @@ bot.on('message', function (message) {
       .setColor("40A497")
       .setTitle("🔒 ... Salon Verrouiller ... 🔒")  
       .setFooter(`Salon Verrouiller par ${message.author.username}`, "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
+      .timestamp()
       message.channel.send(embed)
     }
 
@@ -126,6 +127,7 @@ bot.on('message', function (message) {
       .setColor("40A497")
       .setTitle("🔓 ... Salon Déverrouiller  ... 🔓")  
       .setFooter(`Salon Déverrouiller  par ${message.author.username}`, "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
+      .timestamp()
       message.channel.send(embed)
     }
 let command = message.content.split(" ")[0];
@@ -199,16 +201,31 @@ if (message.content == 'pds') {
   .setColor("40A497")
   .setTitle(`${message.author.username}`)
   .setDescription('🧰 Vien de prendre son Service !!! 🔨')
+  .timestamp()
   message.channel.send(embed)
 }
+
 if (message.content == 'fds') {
    message.delete()
    const embed = new Discord.MessageEmbed()
    .setColor("FF0000")
    .setTitle(`${message.author.username}`)
    .setDescription('🧰 Vien de prendre ça Fin de son Service !!! 🔨')
+   .timestamp()
   message.channel.send(embed)
 }
+
+if (command === `${prefix}AntiRaid_ON`) {
+  message.delete()
+  if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("📌 tu n'as pas la permission ...")
+  const embed = new Discord.MessageEmbed()
+  .setColor("BFF0000")
+  .setTitle(`L'AntiRaid vien d'être activé !!`)
+  .setFooter(`L'AntiRaid activé par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
+  .timestamp()
+  message.channel.send(embed)
+
+} 
 
 if (message.content === `${prefix}Bienvenue`) {
   message.delete()
