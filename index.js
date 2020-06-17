@@ -114,6 +114,7 @@ bot.on('message', function (message) {
       .setColor("40A497")
       .setTitle("🔒 ... Salon Verrouiller ... 🔒")  
       .setFooter(`Salon Verrouiller par ${message.author.username}`, "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
+      .timestamp()
       message.channel.send(embed)
     }
 
@@ -126,6 +127,7 @@ bot.on('message', function (message) {
       .setColor("40A497")
       .setTitle("🔓 ... Salon Déverrouiller  ... 🔓")  
       .setFooter(`Salon Déverrouiller  par ${message.author.username}`, "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
+      .timestamp()
       message.channel.send(embed)
     }
 let command = message.content.split(" ")[0];
@@ -199,6 +201,7 @@ if (message.content == 'pds') {
   .setColor("40A497")
   .setTitle(`${message.author.username}`)
   .setDescription('🧰 Vien de prendre son Service !!! 🔨')
+  .timestamp()
   message.channel.send(embed)
 }
 
@@ -208,18 +211,35 @@ if (message.content == 'fds') {
    .setColor("FF0000")
    .setTitle(`${message.author.username}`)
    .setDescription('🧰 Vien de prendre ça Fin de son Service !!! 🔨')
+   .timestamp()
   message.channel.send(embed)
 }
 
-if (command === `${prefix}AntiRaid_ON`) {
+//////////////
+
+if (command === `${prefix}Antiraid_ON`) {
   message.delete()
   if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("📌 tu n'as pas la permission ...")
   const embed = new Discord.MessageEmbed()
   .setColor("BFF0000")
   .setTitle(`L'AntiRaid vien d'être activé !!`)
-  .setFooter(`L'AntiRaid activé par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
+  .setFooter(`L'AntiRaid est activé par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
   message.channel.send(embed)
+  guild.roles.everyone.updateOverwrite(guild.roles.everyone, { CREATE_INSTANT_INVITE: false })
 } 
+
+if (command === `${prefix}Antiraid_OFF`) {
+  message.delete()
+  if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("📌 tu n'as pas la permission ...")
+  const embed = new Discord.MessageEmbed()
+  .setColor("BFF0000")
+  .setTitle(`L'AntiRaid vien d'être activé !!`)
+  .setFooter(`L'AntiRaid est activé par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
+  message.channel.send(embed)
+  guild.roles.everyone.updateOverwrite(guild.roles.everyone, { CREATE_INSTANT_INVITE: true })
+} 
+
+//////////////
 
 if (message.content === `${prefix}Bienvenue`) {
   message.delete()
@@ -274,6 +294,7 @@ Pour pouvoir voir le reste du Serveur !!
         .addField("Divers", "Voir les commandes Divers", false)       
         .addField("Fun", "Voir les commandes de Fun", false)
         .setFooter("Bot créer par Mao 😎", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
+        
         message.channel.send(embed)
     }
 
