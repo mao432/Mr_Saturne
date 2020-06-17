@@ -220,23 +220,22 @@ if (message.content == 'fds') {
 if (command === `${prefix}Antiraid_ON`) {
   message.delete()
   if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("📌 tu n'as pas la permission ...")
+  guild.roles.everyone.updateOverwrite(guild.roles.everyone, { CREATE_INSTANT_INVITE: false })
   const embed = new Discord.MessageEmbed()
   .setColor("BFF0000")
   .setTitle(`L'AntiRaid vien d'être activé !!`)
   .setFooter(`L'AntiRaid est activé par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
   message.channel.send(embed)
-  guild.roles.everyone.updateOverwrite(guild.roles.everyone, { CREATE_INSTANT_INVITE: false })
 } 
-
 if (command === `${prefix}Antiraid_OFF`) {
   message.delete()
   if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("📌 tu n'as pas la permission ...")
+  guild.roles.everyone.updateOverwrite(guild.roles.everyone, { CREATE_INSTANT_INVITE: true })
   const embed = new Discord.MessageEmbed()
   .setColor("BFF0000")
   .setTitle(`L'AntiRaid vien d'être activé !!`)
   .setFooter(`L'AntiRaid est activé par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
   message.channel.send(embed)
-  guild.roles.everyone.updateOverwrite(guild.roles.everyone, { CREATE_INSTANT_INVITE: true })
 } 
 
 //////////////
