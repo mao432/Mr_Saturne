@@ -216,8 +216,8 @@ if (message.content == 'fds') {
 }
 
 //////////////
-
-if (command === `${prefix}Antiraid_ON`) {
+    
+if (message.content === `${prefix}RaidmodeON`) {
   message.delete()
   if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("📌 tu n'as pas la permission ...")
   guild.roles.everyone.updateOverwrite(guild.roles.everyone, { CREATE_INSTANT_INVITE: false })
@@ -227,7 +227,7 @@ if (command === `${prefix}Antiraid_ON`) {
   .setFooter(`L'AntiRaid est activé par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
   message.channel.send(embed)
 } 
-if (command === `${prefix}Antiraid_OFF`) {
+if (message.content === `${prefix}RaidmodeOFF`) {
   message.delete()
   if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("📌 tu n'as pas la permission ...")
   guild.roles.everyone.updateOverwrite(guild.roles.everyone, { CREATE_INSTANT_INVITE: true })
@@ -237,7 +237,6 @@ if (command === `${prefix}Antiraid_OFF`) {
   .setFooter(`L'AntiRaid est activé par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
   message.channel.send(embed)
 } 
-
 //////////////
 
 if (message.content === `${prefix}Bienvenue`) {
