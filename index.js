@@ -114,7 +114,6 @@ bot.on('message', function (message) {
       .setColor("40A497")
       .setTitle("🔒 ... Salon Verrouiller ... 🔒")  
       .setFooter(`Salon Verrouiller par ${message.author.username}`, "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
-      .timestamp()
       message.channel.send(embed)
     }
 
@@ -127,7 +126,6 @@ bot.on('message', function (message) {
       .setColor("40A497")
       .setTitle("🔓 ... Salon Déverrouiller  ... 🔓")  
       .setFooter(`Salon Déverrouiller  par ${message.author.username}`, "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
-      .timestamp()
       message.channel.send(embed)
     }
 let command = message.content.split(" ")[0];
@@ -201,7 +199,6 @@ if (message.content == 'pds') {
   .setColor("40A497")
   .setTitle(`${message.author.username}`)
   .setDescription('🧰 Vien de prendre son Service !!! 🔨')
-  .timestamp()
   message.channel.send(embed)
 }
 
@@ -211,7 +208,6 @@ if (message.content == 'fds') {
    .setColor("FF0000")
    .setTitle(`${message.author.username}`)
    .setDescription('🧰 Vien de prendre ça Fin de son Service !!! 🔨')
-   .timestamp()
   message.channel.send(embed)
 }
 
@@ -222,7 +218,6 @@ if (command === `${prefix}AntiRaid_ON`) {
   .setColor("BFF0000")
   .setTitle(`L'AntiRaid vien d'être activé !!`)
   .setFooter(`L'AntiRaid activé par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
-  .timestamp()
   message.channel.send(embed)
 
 } 
@@ -280,7 +275,6 @@ Pour pouvoir voir le reste du Serveur !!
         .addField("Divers", "Voir les commandes Divers", false)       
         .addField("Fun", "Voir les commandes de Fun", false)
         .setFooter("Bot créer par Mao 😎", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
-        
         message.channel.send(embed)
     }
 
