@@ -87,10 +87,6 @@ bot.on('message', function (message) {
         .setFooter("Bot créer par Mao 😎", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
         message.channel.send(embed) 
     }
-    else if (message.content === `${prefix}test`) {
-      message.delete()
-     message.reply(`${message.content}`)
-    }
     if (message.content === `${prefix}Fichier`) {
       message.delete()
     const embed = new Discord.MessageEmbed()
@@ -100,7 +96,16 @@ bot.on('message', function (message) {
       .setFooter(`Mr Saturne `, "https://cdn.discordapp.com/attachments/715671122581913601/715884867283320932/mr_saturne.jpg")  
       message.channel.send(embed)
     }
-////////////////
+//Lyon RP :
+  if (message.content === `${prefix}Melvin`) {
+      message.delete()
+    const embed = new Discord.MessageEmbed()
+      .setColor("00A2FF")
+      .setTitle(`Salut à tous Voici ma chaine YTB :D`)
+      .setDescription('https://www.youtube.com/channel/UCmftZjvKrST1vPlU7-oc4gA')
+      .setFooter(`Mr Saturne `, "https://cdn.discordapp.com/attachments/715671122581913601/715884867283320932/mr_saturne.jpg")  
+      message.channel.send(embed)
+    }  
 ////////////////
 
 // Commande Modération:
