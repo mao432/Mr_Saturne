@@ -87,6 +87,10 @@ bot.on('message', function (message) {
         .setFooter("Bot créer par Mao 😎", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
         message.channel.send(embed) 
     }
+    else if (message.content === `${prefix}test`) {
+      message.delete()
+     message.reply(`${message.content}`)
+    }
     if (message.content === `${prefix}Fichier`) {
       message.delete()
     const embed = new Discord.MessageEmbed()
@@ -110,7 +114,6 @@ bot.on('message', function (message) {
       .setColor("40A497")
       .setTitle("🔒 ... Salon Verrouiller ... 🔒")  
       .setFooter(`Salon Verrouiller par ${message.author.username}`, "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
-      .timestamp()
       message.channel.send(embed)
     }
 
@@ -123,7 +126,6 @@ bot.on('message', function (message) {
       .setColor("40A497")
       .setTitle("🔓 ... Salon Déverrouiller  ... 🔓")  
       .setFooter(`Salon Déverrouiller  par ${message.author.username}`, "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
-      .timestamp()
       message.channel.send(embed)
     }
 let command = message.content.split(" ")[0];
@@ -187,7 +189,22 @@ let args = message.content.split(" ").slice(1);
     .setFooter(`Envoyer par ${message.author.username}`)
     message.channel.send(embed)
   }
-
+  if (message.content === `${prefix}Apéro`) {
+    message.delete()
+    const embed = new Discord.MessageEmbed()
+    .setColor("40A497")
+    .setImage("https://tenor.com/view/apero-gif-10337601")
+    .setFooter(`Envoyer par ${message.author.username}`)
+    message.channel.send(embed)
+  }
+  if (message.content === `${prefix}Choqué`) {
+    message.delete()
+    const embed = new Discord.MessageEmbed()
+    .setColor("40A497")
+    .setImage("https://tenor.com/view/omg-gasp-surprise-cloudy-meatballs-gif-4795768")
+    .setFooter(`Envoyer par ${message.author.username}`)
+    message.channel.send(embed)
+  }
 ////////////////
 
 //Autre :
@@ -210,27 +227,24 @@ if (message.content == 'fds') {
 }
 
 //////////////
-    
-if (message.content === `${prefix}RaidmodeON`) {
+
+if (message.content === `${prefix}RaidmodeON`){
   message.delete()
-  if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("📌 tu n'as pas la permission ...")
-  guild.roles.everyone.updateOverwrite(guild.roles.everyone, { CREATE_INSTANT_INVITE: false })
-  const embed = new Discord.MessageEmbed()
-  .setColor("BFF0000")
-  .setTitle(`L'AntiRaid vien d'être activé !!`)
-  .setFooter(`L'AntiRaid est activé par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
-  message.channel.send(embed)
-} 
-if (message.content === `${prefix}RaidmodeOFF`) {
+    const embed = new Discord.MessageEmbed()
+    .setColor("0040FF")
+    .setTitle("⛔ Le Raidmode a été activé ⛔")         
+    .setFooter(`Raidmode activé par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
+    message.channel.send(embed)
+}
+if (message.content === `${prefix}RaidmodeOFF`){
   message.delete()
-  if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("📌 tu n'as pas la permission ...")
-  guild.roles.everyone.updateOverwrite(guild.roles.everyone, { CREATE_INSTANT_INVITE: true })
-  const embed = new Discord.MessageEmbed()
-  .setColor("BFF0000")
-  .setTitle(`L'AntiRaid vien d'être activé !!`)
-  .setFooter(`L'AntiRaid est activé par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
-  message.channel.send(embed)
-} 
+    const embed = new Discord.MessageEmbed()
+    .setColor("0040FF")
+    .setTitle("⛔ Le Raidmode a été activé ⛔")         
+    .setFooter(`Raidmode activé par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
+    message.channel.send(embed)
+}
+
 //////////////
 
 if (message.content === `${prefix}Bienvenue`) {
@@ -324,7 +338,7 @@ Pour pouvoir voir le reste du Serveur !!
         .setTitle("🎆 Bienvenue dans mes commandes de Divers 🎆")         
         .setDescription("Voici ma liste des commandes : , Mon prefix est : ^^")
         .addField("Info", "Avoir ces Informations", false)
-        .addField("Vote + Proposition", "Permet de faire un vote", false)        
+        .addField("Vote", "Permet de faire un vote", false)        
         .addField("Serveur", "Avoir les Information du serveur", false)       
         .addField("Support", "Avoir les Information du Support", false)
         .addField("à faire sans le prefix : salut", "Le bot te répond salut comment tu va", false)
@@ -349,7 +363,9 @@ Pour pouvoir voir le reste du Serveur !!
        .addField("Epileptique", "Envoie un Gif pour les Epileptiques", false)
        .addField("Tg", "Envoie un Gif pour dire ta gueulle", false)   
        .addField("Cheh", "Envoie un Gif pour dire Cheh", false) 
-       .addField("FBI", "Envoie un Gif FBI", false)         
+       .addField("FBI", "Envoie un Gif FBI", false)   
+       .addField("Apéro","Envoie un Gif pour réunir tout le monde à l'apéritif", false)
+       .addField("Choqué ","Envoie un Gif pour dire que tu es choqué", false) 
        .setFooter("Bot créer par Mao 😎", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
        message.channel.send(embed)
     }
@@ -367,5 +383,4 @@ Pour pouvoir voir le reste du Serveur !!
     }
 
 });
-
 bot.login(process.env.TOKEN);
