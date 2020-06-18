@@ -113,7 +113,7 @@ bot.on('message', function (message) {
       const embed = new Discord.MessageEmbed()
       .setColor("40A497")
       .setTitle("🔒 ... Salon Verrouiller ... 🔒")  
-      .setFooter(`Salon Verrouiller par ${message.author.username}`, "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
+      .setFooter(`Salon Verrouiller par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
       message.channel.send(embed)
     }
 
@@ -125,7 +125,7 @@ bot.on('message', function (message) {
       const embed = new Discord.MessageEmbed()
       .setColor("40A497")
       .setTitle("🔓 ... Salon Déverrouiller  ... 🔓")  
-      .setFooter(`Salon Déverrouiller  par ${message.author.username}`, "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
+      .setFooter(`Salon Déverrouiller  par ${message.author.username}`,`${message.author.displayAvatarURL()}`)
       message.channel.send(embed)
     }
 let command = message.content.split(" ")[0];
