@@ -159,6 +159,15 @@ let args = message.content.split(" ").slice(1);
         r.react('❌'); 
       })
     }
+  if(command === "Giveaway"){
+        client.giveawaysManager.start(message.channel, {
+            time: ms(args[0]),
+            prize: args.slice(2).join(" "),
+            winnerCount: parseInt(args[1])
+        }).then((gData) => {
+            console.log(gData);
+        });
+    }
 ////////////////
 
 //Fun : 
