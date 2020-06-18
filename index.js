@@ -87,10 +87,6 @@ bot.on('message', function (message) {
         .setFooter("Bot créer par Mao 😎", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
         message.channel.send(embed) 
     }
-    else if (message.content === `${prefix}test`) {
-      message.delete()
-     message.reply(`${message.content}`)
-    }
     if (message.content === `${prefix}Fichier`) {
       message.delete()
     const embed = new Discord.MessageEmbed()
