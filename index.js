@@ -201,7 +201,6 @@ if (message.content == 'pds') {
   .setColor("40A497")
   .setTitle(`${message.author.username}`)
   .setDescription('🧰 Vien de prendre son Service !!! 🔨')
-  .timestamp()
   message.channel.send(embed)
 }
 
@@ -211,7 +210,6 @@ if (message.content == 'fds') {
    .setColor("FF0000")
    .setTitle(`${message.author.username}`)
    .setDescription('🧰 Vien de prendre ça Fin de son Service !!! 🔨')
-   .timestamp()
   message.channel.send(embed)
 }
 
