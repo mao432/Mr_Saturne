@@ -103,7 +103,7 @@ bot.on('message', function (message) {
       .setColor("00A2FF")
       .setTitle(`Salut à tous Voici ma chaine Youtube MelviNes :`)
       .setDescription('https://www.youtube.com/channel/UCmftZjvKrST1vPlU7-oc4gA')
-      .setFooter(`Chaine Youtube : MelviNes Like,Abonne toi !! `)  
+      .setFooter(`Chaine Youtube : MelviNes Like , Abonne toi !! `)  
       message.channel.send(embed)
     }  
 ////////////////
