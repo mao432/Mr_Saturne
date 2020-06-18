@@ -101,7 +101,7 @@ bot.on('message', function (message) {
       message.delete()
     const embed = new Discord.MessageEmbed()
       .setColor("00A2FF")
-      .setTitle(`Salut à tous Voici ma chaine YTB :D`)
+      .setTitle(`Salut à tous Voici ma chaine Youtube MelviNes :`)
       .setDescription('https://www.youtube.com/channel/UCmftZjvKrST1vPlU7-oc4gA')
       .setFooter(`Chaine Youtube : MelviNes`)  
       message.channel.send(embed)
