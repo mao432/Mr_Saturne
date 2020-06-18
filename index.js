@@ -103,7 +103,7 @@ bot.on('message', function (message) {
       .setColor("00A2FF")
       .setTitle(`Salut à tous Voici ma chaine YTB :D`)
       .setDescription('https://www.youtube.com/channel/UCmftZjvKrST1vPlU7-oc4gA')
-      .setFooter(`Mr Saturne `, "https://cdn.discordapp.com/attachments/715671122581913601/715884867283320932/mr_saturne.jpg")  
+      .setFooter(`Chaine Youtube : MelviNes`)  
       message.channel.send(embed)
     }  
 ////////////////
