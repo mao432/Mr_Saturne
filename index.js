@@ -193,7 +193,7 @@ let args = message.content.split(" ").slice(1);
     message.delete()
     const embed = new Discord.MessageEmbed()
     .setColor("40A497")
-    .setImage("https://tenor.com/view/apero-gif-10337601")
+    .setImage("https://cdn.discordapp.com/emojis/723169505009860608.gif?v=1")
     .setFooter(`Envoyer par ${message.author.username}`)
     message.channel.send(embed)
   }
@@ -201,7 +201,7 @@ let args = message.content.split(" ").slice(1);
     message.delete()
     const embed = new Discord.MessageEmbed()
     .setColor("40A497")
-    .setImage("https://tenor.com/view/omg-gasp-surprise-cloudy-meatballs-gif-4795768")
+    .setImage("https://cdn.discordapp.com/emojis/723169504884162578.gif?v=1")
     .setFooter(`Envoyer par ${message.author.username}`)
     message.channel.send(embed)
   }
