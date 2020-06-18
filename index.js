@@ -16,7 +16,6 @@ bot.on("ready", function() {
     console.log("----------------------");
 });
 
-
 // Commande Divers:
 
 bot.on('message', function (message) {
@@ -96,16 +95,7 @@ bot.on('message', function (message) {
       .setFooter(`Mr Saturne `, "https://cdn.discordapp.com/attachments/715671122581913601/715884867283320932/mr_saturne.jpg")  
       message.channel.send(embed)
     }
-//Lyon RP :
-  if (message.content === `${prefix}Melvin`) {
-      message.delete()
-    const embed = new Discord.MessageEmbed()
-      .setColor("00A2FF")
-      .setTitle(`Salut à tous Voici ma chaine Youtube MelviNes :`)
-      .setDescription('https://www.youtube.com/channel/UCmftZjvKrST1vPlU7-oc4gA')
-      .setFooter(`Chaine Youtube : MelviNes Like , Abonne toi !! `)  
-      message.channel.send(embed)
-    }  
+////////////////
 ////////////////
 
 // Commande Modération:
@@ -118,7 +108,8 @@ bot.on('message', function (message) {
       const embed = new Discord.MessageEmbed()
       .setColor("40A497")
       .setTitle("🔒 ... Salon Verrouiller ... 🔒")  
-      .setFooter(`Salon Verrouiller par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
+      .setFooter(`Salon Verrouiller par ${message.author.username}`, "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
+      .setTimestamp()
       message.channel.send(embed)
     }
 
@@ -130,7 +121,8 @@ bot.on('message', function (message) {
       const embed = new Discord.MessageEmbed()
       .setColor("40A497")
       .setTitle("🔓 ... Salon Déverrouiller  ... 🔓")  
-      .setFooter(`Salon Déverrouiller  par ${message.author.username}`,`${message.author.displayAvatarURL()}`)
+      .setFooter(`Salon Déverrouiller  par ${message.author.username}`, "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
+      .setTimestamp()
       message.channel.send(embed)
     }
 let command = message.content.split(" ")[0];
@@ -144,6 +136,7 @@ let args = message.content.split(" ").slice(1);
       .setColor("BD0101")
       .setTitle(args.join(" "))
       .setFooter(`message envoyer par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
+      .setTimestamp()
       message.channel.send(embed)
     } 
     if (command === `${prefix}Vote`) {
@@ -153,12 +146,39 @@ let args = message.content.split(" ").slice(1);
       .setColor("FF0068")
       .setTitle(args.join(" "))
       .setFooter(`Vote proposé par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
+      .setTimestamp()
       message.channel.send(embed)
       .then (r => {
         r.react('✔')
         r.react('❌'); 
       })
     }
+    if(command === `${prefix}Kick`) {
+      message.delete()
+      if (!message.member.hasPermission('KICK_MEMBERS')) return message.reply("📌 tu n'as pas la permission ...")
+      let member = message.mentions.members.first();
+      let reason = args.slice(1).join(" ");
+      member.kick(reason);
+      const embed = new Discord.MessageEmbed()
+      .setColor("FF0068")
+      .setTitle(`${member.user.username} à été Kick par ${message.author.username} `)
+      .setDescription('Raison du Kick : ' + reason)
+      .setTimestamp()
+      message.channel.send(embed)
+    }
+    if(command === `${prefix}Ban`) {
+      message.delete()
+      if (!message.member.hasPermission('BAN_MEMBERS')) return message.reply("📌 tu n'as pas la permission ...")
+      let member = message.mentions.members.first();
+      let reason = args.slice(1).join(" ");
+      member.ban(reason);
+      const embed = new Discord.MessageEmbed()
+      .setColor("FF0068")
+      .setTitle(`${member.user.username} à été Banni par ${message.author.username} `)
+      .setDescription('Raison du Ban : ' + reason)
+      .setTimestamp()
+      message.channel.send(embed)
+    }  
 ////////////////
 
 //Fun : 
@@ -221,6 +241,7 @@ if (message.content == 'pds') {
   .setColor("40A497")
   .setTitle(`${message.author.username}`)
   .setDescription('🧰 Vien de prendre son Service !!! 🔨')
+  .setTimestamp()
   message.channel.send(embed)
 }
 
@@ -230,6 +251,7 @@ if (message.content == 'fds') {
    .setColor("FF0000")
    .setTitle(`${message.author.username}`)
    .setDescription('🧰 Vien de prendre ça Fin de son Service !!! 🔨')
+   .setTimestamp()
   message.channel.send(embed)
 }
 
@@ -320,8 +342,8 @@ Pour pouvoir voir le reste du Serveur !!
         .setAuthor("Mr.Saturne", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
         .setTitle("⚖ Bienvenue dans mes commandes de Modération ⚖")         
         .setDescription("Voici ma liste des commandes : , Mon prefix est : ^^")
-        .addField("Kick", "à venir", true)
-        .addField("Ban", "à venir", true)       
+        .addField("Kick + @mention + raison(Optionel)", "Permet de Kick une personne", true)
+        .addField("Ban + @mention + raison(Optionel)", "Permet de Ban une personne", true)       
         .addField("Warn", "à venir", true)
         .addField("Unwarn", "à venir", true)
         .addField("Mute", "à venir", true)
@@ -345,7 +367,7 @@ Pour pouvoir voir le reste du Serveur !!
         .setTitle("🎆 Bienvenue dans mes commandes de Divers 🎆")         
         .setDescription("Voici ma liste des commandes : , Mon prefix est : ^^")
         .addField("Info", "Avoir ces Informations", false)
-        .addField("Vote", "Permet de faire un vote", false)        
+        .addField("Vote + proposition", "Permet de faire un vote", false)        
         .addField("Serveur", "Avoir les Information du serveur", false)       
         .addField("Support", "Avoir les Information du Support", false)
         .addField("à faire sans le prefix : salut", "Le bot te répond salut comment tu va", false)
@@ -377,17 +399,17 @@ Pour pouvoir voir le reste du Serveur !!
        message.channel.send(embed)
     }
 
-//Menu Vice City : 
-    else if (message.content === `${prefix}Vice_City`) {
-      message.delete()
-      if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("📌 tu n'as pas la permission ...")
-        const embed = new Discord.MessageEmbed()
-        .setColor("5E610B")
-        .setTitle("Menu Vice City :")
-        .setThumbnail("https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")    
-        .setFooter("Bot créer par Mao 😎", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
-        message.channel.send(embed)
-    }
-
+//Lyon RP :
+  if (message.content === `${prefix}Melvin`) {
+    message.delete()
+  const embed = new Discord.MessageEmbed()
+    .setColor("00A2FF")
+    .setTitle(`Salut à tous Voici ma chaine Youtube MelviNes :`)
+    .setDescription('https://www.youtube.com/channel/UCmftZjvKrST1vPlU7-oc4gA')
+    .setFooter(`Chaine Youtube : MelviNes Like , Abonne toi !! `)  
+    message.channel.send(embed)
+  }  
+////////////////
 });
+
 bot.login(process.env.TOKEN);
