@@ -328,7 +328,7 @@ Pour pouvoir voir le reste du Serveur !!
         .setTitle("🎆 Bienvenue dans mes commandes de Divers 🎆")         
         .setDescription("Voici ma liste des commandes : , Mon prefix est : ^^")
         .addField("Info", "Avoir ces Informations", false)
-        .addField("Vote", "Permet de faire un vote", false)        
+        .addField("Vote + Proposition", "Permet de faire un vote", false)        
         .addField("Serveur", "Avoir les Information du serveur", false)       
         .addField("Support", "Avoir les Information du Support", false)
         .addField("à faire sans le prefix : salut", "Le bot te répond salut comment tu va", false)
