@@ -15,6 +15,14 @@ bot.on("ready", function() {
     console.log("Le bot est en ligne !!");
     console.log("----------------------");
 });
+//Constance / Variable :
+const couleur = [
+  '00FFBD',
+  'FF00B2',
+  '00F725',
+  'BD0101',
+  'FF0000',
+]
 
 // Commande Divers:
 
@@ -32,7 +40,6 @@ bot.on('message', function (message) {
         r.react('👎'); 
       })
     } 
-    //
     else if (message.content === `${prefix}Info`) {
       message.delete()
         const embed = new Discord.MessageEmbed()
@@ -46,7 +53,7 @@ bot.on('message', function (message) {
         .setImage(`${message.author.displayAvatarURL()}`) 
         message.channel.send(embed)    
     }
-    else if (message.content === `${prefix}Serveur`) {
+    if (message.content === `${prefix}Serveur`) {
       message.delete()
         const embed = new Discord.MessageEmbed()
         .setColor("00FFBD")
@@ -60,7 +67,6 @@ bot.on('message', function (message) {
         .setImage(`${message.guild.iconURL()}`)           
         message.channel.send(embed) 
     }
-    //
     else if (message.content === `${prefix}Support`) {
       message.delete()
         const embed = new Discord.MessageEmbed()
@@ -95,7 +101,6 @@ bot.on('message', function (message) {
       .setFooter(`Mr Saturne `, "https://cdn.discordapp.com/attachments/715671122581913601/715884867283320932/mr_saturne.jpg")  
       message.channel.send(embed)
     }
-////////////////
 ////////////////
 
 // Commande Modération:
@@ -132,13 +137,19 @@ let args = message.content.split(" ").slice(1);
     if (command === `${prefix}Say`) {
       message.delete()
       if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("📌 tu n'as pas la permission ...")
+      var Couleur = couleur[Math.floor(Math.random() * couleur.length)]
       const embed = new Discord.MessageEmbed()
-      .setColor("BD0101")
+      .setColor(Couleur)
       .setTitle(args.join(" "))
       .setFooter(`message envoyer par ${message.author.username}`, `${message.author.displayAvatarURL()}`)
       .setTimestamp()
       message.channel.send(embed)
     } 
+    if (command === `${prefix}Message`) {
+      message.delete()
+      if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("📌 tu n'as pas la permission ...")
+      message.channel.send(args.join(" "))
+    }
     if (command === `${prefix}Vote`) {
       message.delete()
       if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply("📌 tu n'as pas la permission ...")
@@ -178,7 +189,7 @@ let args = message.content.split(" ").slice(1);
       .setDescription('Raison du Ban : ' + reason)
       .setTimestamp()
       message.channel.send(embed)
-    }  
+    }   
 ////////////////
 
 //Fun : 
@@ -232,8 +243,44 @@ let args = message.content.split(" ").slice(1);
     .setFooter(`Envoyer par ${message.author.username}`)
     message.channel.send(embed)
   }
-////////////////
+  if (message.content === `Dés`) {
+    message.delete()
+    var diceRoll = Math.floor(Math.random() * 6) + 1;
+    const embed = new Discord.MessageEmbed()
+    .setColor("40A497")
+    .setTitle(`${message.author.username}`)
+    .setDescription(`🎲 Vous avez lancé le Dé et vous êtes tombé sur le chiffre 🎲 : `  +  diceRoll)
+    message.channel.send(embed)
+  }
 
+// Carte :
+
+  const rando_imgs = [
+    'https://cdn.discordapp.com/emojis/723903815413268511.png?v=1', //8
+    'https://cdn.discordapp.com/emojis/723903815211941959.png?v=1', //9
+    'https://cdn.discordapp.com/emojis/723903815362936872.png?v=1',
+    'https://cdn.discordapp.com/emojis/723903815362936833.png?v=1', //roi
+    'https://cdn.discordapp.com/emojis/723903815463731272.png?v=1', //valet
+    'https://cdn.discordapp.com/emojis/723903815211941938.png?v=1', //as
+    'https://cdn.discordapp.com/emojis/723906200822874152.png?v=1', // 7
+    'https://cdn.discordapp.com/emojis/723906200759959622.png?v=1', //6
+    'https://cdn.discordapp.com/emojis/723906200718278757.png?v=1', //5
+    'https://cdn.discordapp.com/emojis/723906200835588116.png?v=1', //4
+    'https://cdn.discordapp.com/emojis/723906200365826121.png?v=1', //3
+    'https://cdn.discordapp.com/emojis/723906200495980595.png?v=1', //2
+  ]
+//
+  if (message.content === `Carte`) {
+    message.delete()
+    var Couleur = couleur[Math.floor(Math.random() * couleur.length)]
+    var Imagevar = rando_imgs[Math.floor(Math.random() * rando_imgs.length)]
+    const embed = new Discord.MessageEmbed()
+    .setColor(Couleur)
+    .setTitle(`${message.author.username}`)
+    .setDescription(`Tu as pioché une carte, Tu es tombé sur :`)
+    .setImage(Imagevar)
+    message.channel.send(embed)
+  }
 //Autre :
 if (message.content == 'pds') {
   message.delete()
@@ -319,8 +366,9 @@ Pour pouvoir voir le reste du Serveur !!
 
      if (message.content === `${prefix}Aide`){
       message.delete()
+      var Couleur = couleur[Math.floor(Math.random() * couleur.length)]
         const embed = new Discord.MessageEmbed()
-        .setColor("0040FF")
+        .setColor(Couleur)
         .setThumbnail("https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
         .setAuthor("Mr.Saturne", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
         .setTitle("📜 Voici la Page d'Aide : 📜")         
@@ -342,13 +390,14 @@ Pour pouvoir voir le reste du Serveur !!
         .setAuthor("Mr.Saturne", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
         .setTitle("⚖ Bienvenue dans mes commandes de Modération ⚖")         
         .setDescription("Voici ma liste des commandes : , Mon prefix est : ^^")
-        .addField("Kick + @mention + raison(Optionel)", "Permet de Kick une personne", true)
-        .addField("Ban + @mention + raison(Optionel)", "Permet de Ban une personne", true)       
+        .addField("Kick", "à venir", true)
+        .addField("Ban", "à venir", true)       
         .addField("Warn", "à venir", true)
         .addField("Unwarn", "à venir", true)
         .addField("Mute", "à venir", true)
         .addField("UnMute", "à venir", true)
-        .addField("Say", "Envoie un message au nom du bot", true)
+        .addField("Say", "Envoie un embed , un message au nom du bot", true)
+        .addField("Message", "Envoie un message au nom du bot", true)
         .addField("Fermer", "Permet de Verrouiller le salon", true)
         .addField("Ouvert", "Permet de Déverrouiller le salon", true)
         .setFooter("Bot créer par Mao 😎", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
@@ -367,7 +416,7 @@ Pour pouvoir voir le reste du Serveur !!
         .setTitle("🎆 Bienvenue dans mes commandes de Divers 🎆")         
         .setDescription("Voici ma liste des commandes : , Mon prefix est : ^^")
         .addField("Info", "Avoir ces Informations", false)
-        .addField("Vote + proposition", "Permet de faire un vote", false)        
+        .addField("Vote", "Permet de faire un vote", false)        
         .addField("Serveur", "Avoir les Information du serveur", false)       
         .addField("Support", "Avoir les Information du Support", false)
         .addField("à faire sans le prefix : salut", "Le bot te répond salut comment tu va", false)
@@ -394,7 +443,8 @@ Pour pouvoir voir le reste du Serveur !!
        .addField("Cheh", "Envoie un Gif pour dire Cheh", false) 
        .addField("FBI", "Envoie un Gif FBI", false)   
        .addField("Apéro","Envoie un Gif pour réunir tout le monde à l'apéritif", false)
-       .addField("Choqué ","Envoie un Gif pour dire que tu es choqué", false) 
+       .addField("Choqué","Envoie un Gif pour dire que tu es choqué", false)
+       .addField("à faire sans le prefix : Dés","Lance un Dé", false)
        .setFooter("Bot créer par Mao 😎", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
        message.channel.send(embed)
     }
