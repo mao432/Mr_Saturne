@@ -16,12 +16,42 @@ bot.on("ready", function() {
     console.log("----------------------");
 });
 //Constance / Variable :
+
 const couleur = [
   '00FFBD',
   'FF00B2',
   '00F725',
   'BD0101',
   'FF0000',
+]
+
+const rando_imgs = [
+  'https://cdn.discordapp.com/emojis/723903815413268511.png?v=1', //8
+  'https://cdn.discordapp.com/emojis/723903815211941959.png?v=1', //9
+  'https://cdn.discordapp.com/emojis/723903815362936872.png?v=1',
+  'https://cdn.discordapp.com/emojis/723903815362936833.png?v=1', //roi
+  'https://cdn.discordapp.com/emojis/723903815463731272.png?v=1', //valet
+  'https://cdn.discordapp.com/emojis/723903815211941938.png?v=1', //as
+  'https://cdn.discordapp.com/emojis/723906200822874152.png?v=1', // 7
+  'https://cdn.discordapp.com/emojis/723906200759959622.png?v=1', //6
+  'https://cdn.discordapp.com/emojis/723906200718278757.png?v=1', //5
+  'https://cdn.discordapp.com/emojis/723906200835588116.png?v=1', //4
+  'https://cdn.discordapp.com/emojis/723906200365826121.png?v=1', //3
+  'https://cdn.discordapp.com/emojis/723906200495980595.png?v=1', //2
+]
+
+const Gay = [
+  '1',
+  '10',
+  '20',
+  '30',
+  '40',
+  '50',
+  '60',
+  '70',
+  '80',
+  '90',
+  '100',
 ]
 
 // Commande Divers:
@@ -164,6 +194,9 @@ let args = message.content.split(" ").slice(1);
         r.react('❌'); 
       })
     }
+
+/////////////////////////
+
     if(command === `${prefix}Kick`) {
       message.delete()
       if (!message.member.hasPermission('KICK_MEMBERS')) return message.reply("📌 tu n'as pas la permission ...")
@@ -252,24 +285,7 @@ let args = message.content.split(" ").slice(1);
     .setDescription(`🎲 Vous avez lancé le Dé et vous êtes tombé sur le chiffre 🎲 : `  +  diceRoll)
     message.channel.send(embed)
   }
-
 // Carte :
-
-  const rando_imgs = [
-    'https://cdn.discordapp.com/emojis/723903815413268511.png?v=1', //8
-    'https://cdn.discordapp.com/emojis/723903815211941959.png?v=1', //9
-    'https://cdn.discordapp.com/emojis/723903815362936872.png?v=1',
-    'https://cdn.discordapp.com/emojis/723903815362936833.png?v=1', //roi
-    'https://cdn.discordapp.com/emojis/723903815463731272.png?v=1', //valet
-    'https://cdn.discordapp.com/emojis/723903815211941938.png?v=1', //as
-    'https://cdn.discordapp.com/emojis/723906200822874152.png?v=1', // 7
-    'https://cdn.discordapp.com/emojis/723906200759959622.png?v=1', //6
-    'https://cdn.discordapp.com/emojis/723906200718278757.png?v=1', //5
-    'https://cdn.discordapp.com/emojis/723906200835588116.png?v=1', //4
-    'https://cdn.discordapp.com/emojis/723906200365826121.png?v=1', //3
-    'https://cdn.discordapp.com/emojis/723906200495980595.png?v=1', //2
-  ]
-//
   if (message.content === `Carte`) {
     message.delete()
     var Couleur = couleur[Math.floor(Math.random() * couleur.length)]
@@ -281,6 +297,31 @@ let args = message.content.split(" ").slice(1);
     .setImage(Imagevar)
     message.channel.send(embed)
   }
+//Gay
+if (message.content === `Test`) {
+  message.delete()
+  var Couleur = couleur[Math.floor(Math.random() * couleur.length)]
+  var Gays = Gay[Math.floor(Math.random() * Gay.length)]
+  const embed = new Discord.MessageEmbed()
+  .setColor(Couleur)
+  .setTitle(`Intelligence Machine`)
+  .setDescription(`tu as ${Gays}% d'Intelligence ... 😅 `)
+  .setFooter(`Ce test est à prendre à la rigolade , ${message.author.username}`)
+  message.channel.send(embed)
+}
+//intelo
+if (message.content === `Gay`) {
+  message.delete()
+  var Couleur = couleur[Math.floor(Math.random() * couleur.length)]
+  var Gays = Gay[Math.floor(Math.random() * Gay.length)]
+  const embed = new Discord.MessageEmbed()
+  .setColor(Couleur)
+  .setTitle(`Gay Machine`)
+  .setDescription(`tu as ${Gays}% d'être gay ... 🌈 `)
+  .setFooter(`Ce test est à prendre à la rigolade , ${message.author.username}`)
+  message.channel.send(embed)
+}
+
 //Autre :
 if (message.content == 'pds') {
   message.delete()
@@ -376,6 +417,7 @@ Pour pouvoir voir le reste du Serveur !!
         .addField("Modération", "Voir les commandes de Modération", false)
         .addField("Divers", "Voir les commandes Divers", false)       
         .addField("Fun", "Voir les commandes de Fun", false)
+        .addField("Jeux", "Voir les commandes de Jeux", false)
         .setFooter("Bot créer par Mao 😎", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
         
         message.channel.send(embed)
@@ -444,21 +486,27 @@ Pour pouvoir voir le reste du Serveur !!
        .addField("FBI", "Envoie un Gif FBI", false)   
        .addField("Apéro","Envoie un Gif pour réunir tout le monde à l'apéritif", false)
        .addField("Choqué","Envoie un Gif pour dire que tu es choqué", false)
-       .addField("à faire sans le prefix : Dés","Lance un Dé", false)
        .setFooter("Bot créer par Mao 😎", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
        message.channel.send(embed)
     }
 
-//Lyon RP :
-  if (message.content === `${prefix}Melvin`) {
-    message.delete()
-  const embed = new Discord.MessageEmbed()
-    .setColor("00A2FF")
-    .setTitle(`Salut à tous Voici ma chaine Youtube MelviNes :`)
-    .setDescription('https://www.youtube.com/channel/UCmftZjvKrST1vPlU7-oc4gA')
-    .setFooter(`Chaine Youtube : MelviNes Like , Abonne toi !! `)  
-    message.channel.send(embed)
-  }  
+//Jeu:
+
+    if (message.content === `${prefix}Jeux`){
+      message.delete()
+       const embed = new Discord.MessageEmbed()
+       .setColor("5E610B")
+       .setThumbnail("https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
+       .setAuthor("Mr.Saturne", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
+       .setTitle("🎈 Bienvenue dans mes commandes de Fun 🎈")         
+       .setDescription("Voici ma liste des commandes :")
+       .addField("à faire sans le prefix : Dés","Lance un Dé", false)
+       .addField("à faire sans le prefix : Carte","Pioche une carte", false)
+       .addField("à faire sans le prefix : Gay","Regarde ton %", false)
+       .addField("à faire sans le prefix : Test","Regarde ton % d'Intelligence", false)
+       .setFooter("Bot créer par Mao 😎", "https://cdn.discordapp.com/attachments/710990961588699209/715572876446793768/images_4.jpg")
+       message.channel.send(embed)
+    }
 ////////////////
 });
 
