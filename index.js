@@ -15,6 +15,7 @@ bot.on("ready", function() {
     console.log("Le bot est en ligne !!");
     console.log("----------------------");
 });
+
 //Constance / Variable :
 
 const couleur = [
@@ -509,5 +510,4 @@ Pour pouvoir voir le reste du Serveur !!
     }
 ////////////////
 });
-
 bot.login(process.env.TOKEN);
