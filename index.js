@@ -41,7 +41,7 @@ const rando_imgs = [
   'https://cdn.discordapp.com/emojis/723906200495980595.png?v=1', //2
 ]
 
-const Gay = [
+const Chiffre = [
   '1',
   '10',
   '20',
@@ -302,7 +302,7 @@ let args = message.content.split(" ").slice(1);
 if (message.content === `Test`) {
   message.delete()
   var Couleur = couleur[Math.floor(Math.random() * couleur.length)]
-  var Gays = Gay[Math.floor(Math.random() * Gay.length)]
+  var Gays = Chiffre[Math.floor(Math.random() * Chiffre.length)]
   const embed = new Discord.MessageEmbed()
   .setColor(Couleur)
   .setTitle(`Intelligence Machine`)
@@ -314,7 +314,7 @@ if (message.content === `Test`) {
 if (message.content === `Gay`) {
   message.delete()
   var Couleur = couleur[Math.floor(Math.random() * couleur.length)]
-  var Gays = Gay[Math.floor(Math.random() * Gay.length)]
+  var Gays = Chiffre[Math.floor(Math.random() * Chiffre.length)]
   const embed = new Discord.MessageEmbed()
   .setColor(Couleur)
   .setTitle(`Gay Machine`)
